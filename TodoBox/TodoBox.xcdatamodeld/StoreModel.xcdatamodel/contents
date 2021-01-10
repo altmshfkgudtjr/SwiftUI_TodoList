@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20B50" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Task" representedClassName=".Task" syncable="YES" codeGenerationType="class">
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="isDone" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="isToday" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="subTitle" optional="YES" attributeType="String"/>
+        <attribute name="title" attributeType="String" defaultValueString="무엇을 계획하셨나요?"/>
+    </entity>
+    <elements>
+        <element name="Task" positionX="-6003.7646484375" positionY="-2485.161437988281" width="128" height="104"/>
+    </elements>
+</model>
