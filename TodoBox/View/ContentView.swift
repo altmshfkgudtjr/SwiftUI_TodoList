@@ -8,18 +8,66 @@
 import SwiftUI
 
 struct ContentView: View {
-    private let date = getNow()
-    
     @Environment(\.managedObjectContext) var moc
     @FetchRequest(
         entity: Task.entity(),
         sortDescriptors: [],
+        predicate: NSPredicate(format: "isToday == NO && isDone == NO"),
         animation: .default
-    ) var taskList: FetchedResults<Task>
+    ) private var taskList: FetchedResults<Task>
+    @FetchRequest(
+        entity: Task.entity(),
+        sortDescriptors: [],
+        predicate: NSPredicate(format: "isToday == YES && isDone == NO"),
+        animation: .default
+    ) private var taskTodayList: FetchedResults<Task>
+    @FetchRequest(
+        entity: Task.entity(),
+        sortDescriptors: [],
+        predicate: NSPredicate(format: "isDone == YES"),
+        animation: .default
+    ) private var taskDoneList: FetchedResults<Task>
     
+    @ObservedObject var taskController = TaskController()
+    
+    private let date = getNow()
+   
     var body: some View {
         NavigationView {
-            Text("Toolbar")
+            List {
+                Section(header: Text("오늘 할 일")
+                            .fontWeight(.bold)) {
+                    ForEach(taskTodayList, id: \.id) { task in
+                        HStack {
+                            Text(task.title ?? "할일이 지정되지 않았습니다.")
+                                .font(.body)
+                        }
+                    }
+                    .onDelete(perform: taskController.taskController)
+                }
+                Spacer()
+                Section(header: Text("계획된 일")
+                            .fontWeight(.bold)) {
+                    ForEach(taskList, id: \.id) { task in
+                        HStack {
+                            Text(task.title ?? "할일이 지정되지 않았습니다.")
+                                .font(.body)
+                        }
+                    }
+                    .onDelete(perform: taskController.deleteTask)
+                }
+                Spacer()
+                Section(header: Text("완료된 일")
+                            .fontWeight(.bold)) {
+                    ForEach(taskDoneList, id: \.id) { task in
+                        HStack {
+                            Text(task.title ?? "할일이 지정되지 않았습니다.")
+                                .font(.body)
+                        }
+                    }
+                    .onDelete(perform: taskController.deleteTask)
+                }
+            }
                 .font(.title)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarLeading) {
@@ -28,66 +76,42 @@ struct ContentView: View {
                         }, label: {
                             HStack {
                                 Image(systemName: "chevron.left")
+                                    .foregroundColor(.black)
                                 Text("목록")
+                                    .foregroundColor(.black)
                             }
                         })
                     }
                  }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                           // 목록으로 가기 Action
-                        }, label: {
-                            Image(systemName: "ellipsis")
-                        })
+                        HStack {
+                            Button(action: {
+                                taskController.addtask(title: "Test", subTitle: "-", isToday: false)
+                            }, label: {
+                                HStack {
+                                    Text("")
+                                        .foregroundColor(.black)
+                                    Image(systemName: "plus.app")
+                                        .foregroundColor(.black)
+                                }
+                            })
+                            Button(action: {
+                               // 목록으로 가기 Action
+                            }, label: {
+                                HStack {
+                                    Text("")
+                                        .foregroundColor(.black)
+                                    Image(systemName: "ellipsis")
+                                        .foregroundColor(.black)
+                                }
+                            })
+                        }
+                        
                     }
                  }
                 .navigationTitle("할 일 목록")
         }
-//        VStack {
-//            HStack {
-//                Text("\(date)")
-//                    .foregroundColor(Color.gray)
-//                    .padding(.leading, 20.0)
-//                Spacer()
-//                Button("할 일 추가") {
-//                    let mockTasks = ["A", "B", "C", "D"]
-//
-//                    let chosenTitle = mockTasks.randomElement()!
-//
-//                    let task = Task(context: self.moc)
-//                    task.id = UUID()
-//                    task.title = "\(chosenTitle)"
-//                    task.subTitle = ""
-//                    task.isToday = false
-//                    task.isDone = false
-//
-//                    try? self.moc.save()
-//                }
-//                .padding(.trailing, 20.0)
-//            }
-//            Form {
-//                Text("오늘 할 일")
-//                    .fontWeight(.bold)
-//                List(self.taskList, id: \.id) { task in
-//                    HStack {
-//                        Text(task.title ?? "할일이 지정되지 않았습니다.")
-//                    }
-//                }
-//            }
-//            Form {
-//                Text("계획된 할 일")
-//                    .fontWeight(.bold)
-//                List {
-//                }
-//            }
-//            Form {
-//                Text("완료된 일")
-//                    .fontWeight(.bold)
-//                List {
-//                }
-//            }
-//        }
     }
 }
 

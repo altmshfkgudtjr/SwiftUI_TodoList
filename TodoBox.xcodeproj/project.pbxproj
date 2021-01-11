@@ -16,6 +16,7 @@
 		2DAF12CF25A9EC4E0072812C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DAF12CE25A9EC4E0072812C /* Preview Assets.xcassets */; };
 		2DAF12DA25A9EC4E0072812C /* TodoBoxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAF12D925A9EC4E0072812C /* TodoBoxTests.swift */; };
 		2DAF12E525A9EC4E0072812C /* TodoBoxUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAF12E425A9EC4E0072812C /* TodoBoxUITests.swift */; };
+		2DED4B7F25AC3285006013B1 /* TaskController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DED4B7E25AC3285006013B1 /* TaskController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		2DAF12E025A9EC4E0072812C /* TodoBoxUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoBoxUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAF12E425A9EC4E0072812C /* TodoBoxUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoBoxUITests.swift; sourceTree = "<group>"; };
 		2DAF12E625A9EC4E0072812C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2DED4B7E25AC3285006013B1 /* TaskController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		2D1E974F25AAF18900B8AAB0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2DED4B7E25AC3285006013B1 /* TaskController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -304,6 +307,7 @@
 				2D1E975225AAF18F00B8AAB0 /* ContentView.swift in Sources */,
 				2D67406125AB462B00BFC872 /* Persistence.swift in Sources */,
 				2D7D878D25AACD4600B97A44 /* TodoBox.xcdatamodeld in Sources */,
+				2DED4B7F25AC3285006013B1 /* TaskController.swift in Sources */,
 				2D7D877625AAC57A00B97A44 /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
