@@ -1,14 +1,14 @@
 //
-//  TodoBoxTests.swift
-//  TodoBoxTests
+//  TodoListTests.swift
+//  TodoListTests
 //
-//  Created by 김형석 on 2021/01/09.
+//  Created by 김형석 on 2021/01/12.
 //
 
 import XCTest
-@testable import TodoBox
+@testable import TodoList
 
-class TodoBoxTests: XCTestCase {
+class TodoListTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
