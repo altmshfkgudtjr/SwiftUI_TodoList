@@ -18,10 +18,10 @@ struct TaskRow: View {
             self.partialSheet.showPartialSheet({
                 print("Partial sheet가 비활성화되었습니다!")
             }) {
-                TaskModal(task: task)
+                TaskModal(isNew: false, task: task)
             }
         }, label: {
-            Text(task.title ?? "불러오는 중입니다")
+            Text(task.title ?? "불러오는 중입니다...")
         })
     }
 }

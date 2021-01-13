@@ -15,6 +15,9 @@
 		2D825E1325AD687E00674BE1 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E1125AD687E00674BE1 /* TodoList.xcdatamodeld */; };
 		2D825E1E25AD687E00674BE1 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E1D25AD687E00674BE1 /* TodoListTests.swift */; };
 		2D825E2925AD687E00674BE1 /* TodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E2825AD687E00674BE1 /* TodoListUITests.swift */; };
+		2D8DA1CF25AF267500CCF655 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1CE25AF267500CCF655 /* TaskList.swift */; };
+		2D8DA1D425AF288500CCF655 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1D325AF288500CCF655 /* TabIcon.swift */; };
+		2D8DA1D925AF29E400CCF655 /* TaskAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */; };
 		2DB537D325AD80FD0028EAFC /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537D125AD80FD0028EAFC /* Task+CoreDataClass.swift */; };
 		2DB537D425AD80FD0028EAFC /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537D225AD80FD0028EAFC /* Task+CoreDataProperties.swift */; };
 		2DB537DC25AD84A30028EAFC /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537DB25AD84A30028EAFC /* TaskRow.swift */; };
@@ -54,6 +57,9 @@
 		2D825E2425AD687E00674BE1 /* TodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D825E2825AD687E00674BE1 /* TodoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListUITests.swift; sourceTree = "<group>"; };
 		2D825E2A25AD687E00674BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D8DA1CE25AF267500CCF655 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
+		2D8DA1D325AF288500CCF655 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
+		2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddButton.swift; sourceTree = "<group>"; };
 		2DB537D125AD80FD0028EAFC /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		2DB537D225AD80FD0028EAFC /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		2DB537DB25AD84A30028EAFC /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
@@ -153,6 +159,9 @@
 			children = (
 				2DB537E625AD93520028EAFC /* TaskModal.swift */,
 				2DB537DB25AD84A30028EAFC /* TaskRow.swift */,
+				2D8DA1CE25AF267500CCF655 /* TaskList.swift */,
+				2D8DA1D325AF288500CCF655 /* TabIcon.swift */,
+				2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */,
 				2D825E0825AD687D00674BE1 /* ContentView.swift */,
 			);
 			path = View;
@@ -312,8 +321,11 @@
 				2D825E1025AD687E00674BE1 /* Persistence.swift in Sources */,
 				2DB537D325AD80FD0028EAFC /* Task+CoreDataClass.swift in Sources */,
 				2D825E0925AD687D00674BE1 /* ContentView.swift in Sources */,
+				2D8DA1CF25AF267500CCF655 /* TaskList.swift in Sources */,
+				2D8DA1D925AF29E400CCF655 /* TaskAddButton.swift in Sources */,
 				2D825E0725AD687D00674BE1 /* TodoListApp.swift in Sources */,
 				2DB537D425AD80FD0028EAFC /* Task+CoreDataProperties.swift in Sources */,
+				2D8DA1D425AF288500CCF655 /* TabIcon.swift in Sources */,
 				2DB537DC25AD84A30028EAFC /* TaskRow.swift in Sources */,
 				2DB537E725AD93520028EAFC /* TaskModal.swift in Sources */,
 				2D825E1325AD687E00674BE1 /* TodoList.xcdatamodeld in Sources */,

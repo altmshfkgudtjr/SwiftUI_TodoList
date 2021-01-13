@@ -16,7 +16,7 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for i in 0..<10 {
+        for i in 0..<4 {
             let newTask = Task(context: viewContext) // vieContext에 연결된 context에서 Task 생성.
             newTask.id = UUID()
             newTask.title = "계획된 일 \(i)"
