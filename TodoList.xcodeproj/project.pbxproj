@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D80191425B04558006634FC /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D80191325B04558006634FC /* NavigationBarModifier.swift */; };
 		2D825E0725AD687D00674BE1 /* TodoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E0625AD687D00674BE1 /* TodoListApp.swift */; };
 		2D825E0925AD687D00674BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E0825AD687D00674BE1 /* ContentView.swift */; };
 		2D825E0B25AD687E00674BE1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D825E0A25AD687E00674BE1 /* Assets.xcassets */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D80191325B04558006634FC /* NavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarModifier.swift; sourceTree = "<group>"; };
 		2D825E0325AD687D00674BE1 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D825E0625AD687D00674BE1 /* TodoListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListApp.swift; sourceTree = "<group>"; };
 		2D825E0825AD687D00674BE1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D80191225B04526006634FC /* Utill */ = {
+			isa = PBXGroup;
+			children = (
+				2D80191325B04558006634FC /* NavigationBarModifier.swift */,
+			);
+			path = Utill;
+			sourceTree = "<group>";
+		};
 		2D825DFA25AD687D00674BE1 = {
 			isa = PBXGroup;
 			children = (
@@ -119,7 +129,7 @@
 				2D825E0A25AD687E00674BE1 /* Assets.xcassets */,
 				2D825E0F25AD687E00674BE1 /* Persistence.swift */,
 				2DB537B825AD6AFB0028EAFC /* Model */,
-				2DB537B725AD6AF50028EAFC /* Controller */,
+				2D80191225B04526006634FC /* Utill */,
 				2DB537B625AD6AE90028EAFC /* View */,
 				2D825E0625AD687D00674BE1 /* TodoListApp.swift */,
 				2D825E1425AD687E00674BE1 /* Info.plist */,
@@ -165,13 +175,6 @@
 				2D825E0825AD687D00674BE1 /* ContentView.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		2DB537B725AD6AF50028EAFC /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 		2DB537B825AD6AFB0028EAFC /* Model */ = {
@@ -320,6 +323,7 @@
 			files = (
 				2D825E1025AD687E00674BE1 /* Persistence.swift in Sources */,
 				2DB537D325AD80FD0028EAFC /* Task+CoreDataClass.swift in Sources */,
+				2D80191425B04558006634FC /* NavigationBarModifier.swift in Sources */,
 				2D825E0925AD687D00674BE1 /* ContentView.swift in Sources */,
 				2D8DA1CF25AF267500CCF655 /* TaskList.swift in Sources */,
 				2D8DA1D925AF29E400CCF655 /* TaskAddButton.swift in Sources */,

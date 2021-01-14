@@ -11,13 +11,29 @@ import PartialSheet
 
 struct TaskModal: View {
     @Environment(\.managedObjectContext) var viewContext
+    @EnvironmentObject var partialSheet : PartialSheetManager
     
     var isNew: Bool
-    var task: Task?
+    var task: Task? = Task()
     
     @State var taskTitle: String = ""
     @State var taskBrief: String = ""
     @State var taskIsToday: Bool = false
+    
+    init(isNew: Bool, task: Task? = nil) {
+        self.isNew = isNew
+        if (isNew) {
+            self.taskTitle = ""
+            self.taskBrief = ""
+            self.taskIsToday = false
+        } else {
+            print(task!.title!)
+            self.taskTitle = task!.title ?? ""
+            self.taskBrief = task!.brief ?? ""
+            self.taskIsToday = task!.isToday
+            print(self.taskTitle)
+        }
+    }
     
     var body: some View {
         if (isNew) {
@@ -35,12 +51,14 @@ struct TaskModal: View {
                     }.padding(.bottom, 10)
                     Button(action: {
                         self.addTask()
+                        self.partialSheet.closePartialSheet()
                     }, label: {
                         Text("생성하기")
+                            .fontWeight(.bold)
                             .padding()
                             .foregroundColor(Color.white)
                             .frame(width: 100, height: 40.0)
-                            .background(Color.blue)
+                            .background(Color(red: 18/255, green: 184/255, blue: 134/255))
                             .cornerRadius(12)
                     })
                 }
@@ -60,13 +78,15 @@ struct TaskModal: View {
                         Text("오늘 등록")
                     }.padding(.bottom, 10)
                     Button(action: {
-                        self.addTask()
+//                        self.addTask()
+                        self.partialSheet.closePartialSheet()
                     }, label: {
                         Text("수정하기")
+                            .fontWeight(.bold)
                             .padding()
                             .foregroundColor(Color.white)
                             .frame(width: 100, height: 40.0)
-                            .background(Color.blue)
+                            .background(Color(red: 18/255, green: 184/255, blue: 134/255))
                             .cornerRadius(12)
                     })
                 }
@@ -83,6 +103,8 @@ struct TaskModal: View {
         newTask.brief = taskBrief
         newTask.isToday = taskIsToday
         newTask.isDone = false
+        
+        print("생성 : \(newTask.id), \(String(describing: newTask.title))")
         
         do {
             try viewContext.save()

@@ -14,11 +14,16 @@ struct ContentView: View {
     // PartialSheet와 관련된 모든 것을 사용하기 위해서는 해당 라이브러리 import가 필요하다. 라고 레퍼런스에 적혀있음.
     // 왜냐하면 Modal이 보여지기 위해서는 해당 공유자원을 수정해야 되기 때문이다.
     @EnvironmentObject var partialSheet : PartialSheetManager
+    
+    // 현재 탭 tag를 지정해준다. 이 부분을 안하면 partialSheet이 열릴 때,
+    // 초기화가 되는 버그가 발생할 수 있다.
+    @State private var currentTab = 1
 
+    
     var body: some View {
         NavigationView {
             ZStack {
-                TabView(selection: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Selection@*/.constant(1)/*@END_MENU_TOKEN@*/) {
+                TabView(selection: $currentTab) {
                     TaskList(type: TodoType.TODAY)
                         .tabItem({ TabIcon(type: TodoType.TODAY) }).tag(1)
                     TaskList(type: TodoType.INCOMPLETE)
@@ -30,12 +35,30 @@ struct ContentView: View {
                 }
                 TaskAddButton()
             }
+            .addPartialSheet()
+            .navigationBarColor(UIColor(red: 18/255, green: 184/255, blue: 134/255, alpha: 1))
             
-            .navigationTitle("반갑습니다! NB님")
+            .navigationBarTitle("투두리스트")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Link("NB#log", destination: URL(string: "https://altmshfkgudtjr.github.io/")!)
+                }
+            }
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        
+                    }) {
+                        Image(systemName: "ellipsis")
+                    }
+                }
+            }
         }
-        .addPartialSheet()
     }
 }
+
+
+
 
 // ContentView 미리보기를 위한 설정
 // Persistence에 미리보기를 위한 dump 데이터를 Preview로 보여지도록 한다.

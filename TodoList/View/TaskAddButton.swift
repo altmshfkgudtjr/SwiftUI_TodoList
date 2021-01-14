@@ -30,7 +30,7 @@ struct TaskAddButton: View {
                         .frame(width: 60, height: 60)
                         .foregroundColor(Color.white)
                 })
-                .background(Color.blue)
+                .background(Color(red: 18/255, green: 184/255, blue: 134/255))
                 .cornerRadius(38.5)
                 .padding()
                 .padding(.bottom, 50)
