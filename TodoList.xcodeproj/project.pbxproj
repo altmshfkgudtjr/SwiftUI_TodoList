@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2F818625B1EE2E00168DA8 /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 2D2F818525B1EE2E00168DA8 /* PartialSheet */; };
 		2D80191425B04558006634FC /* NavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D80191325B04558006634FC /* NavigationBarModifier.swift */; };
 		2D825E0725AD687D00674BE1 /* TodoListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E0625AD687D00674BE1 /* TodoListApp.swift */; };
 		2D825E0925AD687D00674BE1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E0825AD687D00674BE1 /* ContentView.swift */; };
@@ -23,7 +24,6 @@
 		2DB537D425AD80FD0028EAFC /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537D225AD80FD0028EAFC /* Task+CoreDataProperties.swift */; };
 		2DB537DC25AD84A30028EAFC /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537DB25AD84A30028EAFC /* TaskRow.swift */; };
 		2DB537E725AD93520028EAFC /* TaskModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537E625AD93520028EAFC /* TaskModal.swift */; };
-		2DB537F025AD96170028EAFC /* PartialSheet in Frameworks */ = {isa = PBXBuildFile; productRef = 2DB537EF25AD96170028EAFC /* PartialSheet */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DB537F025AD96170028EAFC /* PartialSheet in Frameworks */,
+				2D2F818625B1EE2E00168DA8 /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,7 +203,7 @@
 			);
 			name = TodoList;
 			packageProductDependencies = (
-				2DB537EF25AD96170028EAFC /* PartialSheet */,
+				2D2F818525B1EE2E00168DA8 /* PartialSheet */,
 			);
 			productName = TodoList;
 			productReference = 2D825E0325AD687D00674BE1 /* TodoList.app */;
@@ -277,7 +277,7 @@
 			);
 			mainGroup = 2D825DFA25AD687D00674BE1;
 			packageReferences = (
-				2DB537EE25AD96170028EAFC /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				2D2F818425B1EE2E00168DA8 /* XCRemoteSwiftPackageReference "PartialSheet" */,
 			);
 			productRefGroup = 2D825E0425AD687D00674BE1 /* Products */;
 			projectDirPath = "";
@@ -500,7 +500,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nb.TodoList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nb.todolist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -524,7 +524,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.nb.TodoList;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nb.todolist;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -658,9 +658,9 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		2DB537EE25AD96170028EAFC /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
+		2D2F818425B1EE2E00168DA8 /* XCRemoteSwiftPackageReference "PartialSheet" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet";
+			repositoryURL = "https://github.com/AndreaMiotto/PartialSheet.git";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.1.11;
@@ -669,9 +669,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		2DB537EF25AD96170028EAFC /* PartialSheet */ = {
+		2D2F818525B1EE2E00168DA8 /* PartialSheet */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 2DB537EE25AD96170028EAFC /* XCRemoteSwiftPackageReference "PartialSheet" */;
+			package = 2D2F818425B1EE2E00168DA8 /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
 		};
 /* End XCSwiftPackageProductDependency section */
