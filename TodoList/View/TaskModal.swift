@@ -14,7 +14,7 @@ struct TaskModal: View {
     @EnvironmentObject var partialSheet : PartialSheetManager
     
     var isNew: Bool
-    var task: Task? = Task()
+    var task: Task?
     
     @State var taskTitle: String = ""
     @State var taskBrief: String = ""
@@ -22,16 +22,11 @@ struct TaskModal: View {
     
     init(isNew: Bool, task: Task? = nil) {
         self.isNew = isNew
-        if (isNew) {
-            self.taskTitle = ""
-            self.taskBrief = ""
-            self.taskIsToday = false
-        } else {
-            print(task!.title!)
-            self.taskTitle = task!.title ?? ""
-            self.taskBrief = task!.brief ?? ""
-            self.taskIsToday = task!.isToday
-            print(self.taskTitle)
+        if (!isNew) {
+            self.task = task
+            _taskTitle = State(initialValue: task!.title ?? "")
+            _taskBrief = State(initialValue: task!.brief ?? "")
+            _taskIsToday = State(initialValue: task!.isToday)
         }
     }
     
@@ -42,12 +37,25 @@ struct TaskModal: View {
                     .font(.headline)
                     .fontWeight(.bold)
                 VStack {
-                    TextField("할 일 제목", text: $taskTitle)
-                        .padding(.bottom, 10)
-                    TextField("할 일 설명 (생략 가능)", text: $taskBrief)
-                        .padding(.bottom, 10)
+                    HStack(alignment: .top) {
+                        Image(systemName: "circle")
+                            .padding(.top, 2)
+                        TextField("할 일 제목", text: $taskTitle)
+                            .padding(.bottom, 10)
+                    }
+                    HStack(alignment: .top) {
+                        Image(systemName: "circle")
+                            .padding(.top, 2)
+                        TextField("할 일 설명 (생략 가능)", text: $taskBrief)
+                            .padding(.bottom, 10)
+                            .foregroundColor(.gray)
+                    }
                     Toggle(isOn: $taskIsToday) {
-                        Text("오늘 등록")
+                        HStack(alignment: .top) {
+                            Image(systemName: "sun.max")
+                                .padding(.top, 2)
+                            Text("오늘 할 일")
+                        }
                     }.padding(.bottom, 10)
                     Button(action: {
                         self.addTask()
@@ -57,7 +65,7 @@ struct TaskModal: View {
                             .fontWeight(.bold)
                             .padding()
                             .foregroundColor(Color.white)
-                            .frame(width: 100, height: 40.0)
+                            .frame(width: 120, height: 40.0)
                             .background(Color(red: 18/255, green: 184/255, blue: 134/255))
                             .cornerRadius(12)
                     })
@@ -70,25 +78,54 @@ struct TaskModal: View {
                     .font(.headline)
                     .fontWeight(.bold)
                 VStack {
-                    TextField("할 일 제목", text: $taskTitle)
-                        .padding(.bottom, 10)
-                    TextField("할 일 설명 (생략 가능)", text: $taskBrief)
-                        .padding(.bottom, 10)
+                    HStack(alignment: .top) {
+                        Image(systemName: "circle")
+                            .padding(.top, 2)
+                        TextField("할 일 제목", text: $taskTitle)
+                            .padding(.bottom, 10)
+                    }
+                    HStack(alignment: .top) {
+                        Image(systemName: "circle")
+                            .padding(.top, 2)
+                        TextField("할 일 설명 (생략 가능)", text: $taskBrief)
+                            .padding(.bottom, 10)
+                            .foregroundColor(.gray)
+                    }
                     Toggle(isOn: $taskIsToday) {
-                        Text("오늘 등록")
+                        HStack(alignment: .top) {
+                            Image(systemName: "sun.max")
+                                .padding(.top, 2)
+                            Text("오늘 할 일")
+                        }
                     }.padding(.bottom, 10)
-                    Button(action: {
-//                        self.addTask()
-                        self.partialSheet.closePartialSheet()
-                    }, label: {
-                        Text("수정하기")
-                            .fontWeight(.bold)
-                            .padding()
-                            .foregroundColor(Color.white)
-                            .frame(width: 100, height: 40.0)
-                            .background(Color(red: 18/255, green: 184/255, blue: 134/255))
-                            .cornerRadius(12)
-                    })
+                    HStack() {
+                        Button(action: {
+                            self.toggleDoneTask()
+                            self.partialSheet.closePartialSheet()
+                        }, label: {
+                            Text(task!.isDone ? "되돌리기" : "완료하기")
+                                .fontWeight(.bold)
+                                .padding()
+                                .foregroundColor(Color.white)
+                                .frame(width: 120, height: 40.0)
+                                .background(Color.gray)
+                                .cornerRadius(12)
+                        })
+                        Spacer()
+                        Button(action: {
+                            self.updateTask()
+                            self.partialSheet.closePartialSheet()
+                        }, label: {
+                            Text("수정하기")
+                                .fontWeight(.bold)
+                                .padding()
+                                .foregroundColor(Color.white)
+                                .frame(width: 120, height: 40.0)
+                                .background(Color(red: 18/255, green: 184/255, blue: 134/255))
+                                .cornerRadius(12)
+                        })
+                    }
+                    .padding(.top, 20.0)
                 }
                 .padding(.horizontal)
             }
@@ -104,7 +141,29 @@ struct TaskModal: View {
         newTask.isToday = taskIsToday
         newTask.isDone = false
         
-        print("생성 : \(newTask.id), \(String(describing: newTask.title))")
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    // 할 일 수정
+    func updateTask() {
+        task?.title = taskTitle
+        task?.brief = taskBrief
+        task?.isToday = taskIsToday
+        
+        do {
+            try viewContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    // 할 일 완료
+    func toggleDoneTask() {
+        task?.isDone = !task!.isDone
         
         do {
             try viewContext.save()

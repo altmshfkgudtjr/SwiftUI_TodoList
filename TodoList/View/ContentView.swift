@@ -35,7 +35,6 @@ struct ContentView: View {
                 }
                 TaskAddButton()
             }
-            .addPartialSheet()
             .navigationBarColor(UIColor(red: 18/255, green: 184/255, blue: 134/255, alpha: 1))
             
             .navigationBarTitle("투두리스트")
@@ -46,14 +45,26 @@ struct ContentView: View {
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                    Button(action: {
-                        
-                    }) {
+                    Menu {
+                        Button(action: {
+                            self.partialSheet.showPartialSheet({
+                                print("Partial sheet가 비활성화되었습니다!")
+                            }) {
+                                TaskModal(isNew: true)
+                            }
+                        }, label: {
+                            Text("할 일 추가하기")
+                        })
+                        Text("제작자. NB")
+                    }
+                    label: {
                         Image(systemName: "ellipsis")
+                            .padding(.vertical, 10)
                     }
                 }
             }
         }
+        .addPartialSheet()
     }
 }
 
