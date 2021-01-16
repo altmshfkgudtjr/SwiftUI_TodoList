@@ -15,8 +15,6 @@
 		2D825E0E25AD687E00674BE1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2D825E0D25AD687E00674BE1 /* Preview Assets.xcassets */; };
 		2D825E1025AD687E00674BE1 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E0F25AD687E00674BE1 /* Persistence.swift */; };
 		2D825E1325AD687E00674BE1 /* TodoList.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E1125AD687E00674BE1 /* TodoList.xcdatamodeld */; };
-		2D825E1E25AD687E00674BE1 /* TodoListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E1D25AD687E00674BE1 /* TodoListTests.swift */; };
-		2D825E2925AD687E00674BE1 /* TodoListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D825E2825AD687E00674BE1 /* TodoListUITests.swift */; };
 		2D8DA1CF25AF267500CCF655 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1CE25AF267500CCF655 /* TaskList.swift */; };
 		2D8DA1D425AF288500CCF655 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1D325AF288500CCF655 /* TabIcon.swift */; };
 		2D8DA1D925AF29E400CCF655 /* TaskAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */; };
@@ -56,11 +54,7 @@
 		2D825E1225AD687E00674BE1 /* TodoList.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TodoList.xcdatamodel; sourceTree = "<group>"; };
 		2D825E1425AD687E00674BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D825E1925AD687E00674BE1 /* TodoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D825E1D25AD687E00674BE1 /* TodoListTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListTests.swift; sourceTree = "<group>"; };
-		2D825E1F25AD687E00674BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D825E2425AD687E00674BE1 /* TodoListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodoListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2D825E2825AD687E00674BE1 /* TodoListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListUITests.swift; sourceTree = "<group>"; };
-		2D825E2A25AD687E00674BE1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D8DA1CE25AF267500CCF655 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		2D8DA1D325AF288500CCF655 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddButton.swift; sourceTree = "<group>"; };
@@ -110,8 +104,6 @@
 			isa = PBXGroup;
 			children = (
 				2D825E0525AD687D00674BE1 /* TodoList */,
-				2D825E1C25AD687E00674BE1 /* TodoListTests */,
-				2D825E2725AD687E00674BE1 /* TodoListUITests */,
 				2D825E0425AD687D00674BE1 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -149,24 +141,6 @@
 				2D825E0D25AD687E00674BE1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		2D825E1C25AD687E00674BE1 /* TodoListTests */ = {
-			isa = PBXGroup;
-			children = (
-				2D825E1D25AD687E00674BE1 /* TodoListTests.swift */,
-				2D825E1F25AD687E00674BE1 /* Info.plist */,
-			);
-			path = TodoListTests;
-			sourceTree = "<group>";
-		};
-		2D825E2725AD687E00674BE1 /* TodoListUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2D825E2825AD687E00674BE1 /* TodoListUITests.swift */,
-				2D825E2A25AD687E00674BE1 /* Info.plist */,
-			);
-			path = TodoListUITests;
 			sourceTree = "<group>";
 		};
 		2DA67F7825B2CF9E00653BEB /* Controller */ = {
@@ -356,7 +330,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D825E1E25AD687E00674BE1 /* TodoListTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,7 +337,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2D825E2925AD687E00674BE1 /* TodoListUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
