@@ -20,6 +20,8 @@
 		2D8DA1CF25AF267500CCF655 /* TaskList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1CE25AF267500CCF655 /* TaskList.swift */; };
 		2D8DA1D425AF288500CCF655 /* TabIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1D325AF288500CCF655 /* TabIcon.swift */; };
 		2D8DA1D925AF29E400CCF655 /* TaskAddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */; };
+		2DA67F6F25B2BE5D00653BEB /* ToastSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2DA67F6E25B2BE5D00653BEB /* ToastSwiftUI */; };
+		2DA67F7425B2C36800653BEB /* ToastCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA67F7325B2C36800653BEB /* ToastCenter.swift */; };
 		2DB537D325AD80FD0028EAFC /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537D125AD80FD0028EAFC /* Task+CoreDataClass.swift */; };
 		2DB537D425AD80FD0028EAFC /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537D225AD80FD0028EAFC /* Task+CoreDataProperties.swift */; };
 		2DB537DC25AD84A30028EAFC /* TaskRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DB537DB25AD84A30028EAFC /* TaskRow.swift */; };
@@ -62,6 +64,7 @@
 		2D8DA1CE25AF267500CCF655 /* TaskList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList.swift; sourceTree = "<group>"; };
 		2D8DA1D325AF288500CCF655 /* TabIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabIcon.swift; sourceTree = "<group>"; };
 		2D8DA1D825AF29E400CCF655 /* TaskAddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAddButton.swift; sourceTree = "<group>"; };
+		2DA67F7325B2C36800653BEB /* ToastCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastCenter.swift; sourceTree = "<group>"; };
 		2DB537D125AD80FD0028EAFC /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		2DB537D225AD80FD0028EAFC /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		2DB537DB25AD84A30028EAFC /* TaskRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskRow.swift; sourceTree = "<group>"; };
@@ -73,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DA67F6F25B2BE5D00653BEB /* ToastSwiftUI in Frameworks */,
 				2D2F818625B1EE2E00168DA8 /* PartialSheet in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -129,6 +133,7 @@
 				2D825E0A25AD687E00674BE1 /* Assets.xcassets */,
 				2D825E0F25AD687E00674BE1 /* Persistence.swift */,
 				2DB537B825AD6AFB0028EAFC /* Model */,
+				2DA67F7825B2CF9E00653BEB /* Controller */,
 				2D80191225B04526006634FC /* Utill */,
 				2DB537B625AD6AE90028EAFC /* View */,
 				2D825E0625AD687D00674BE1 /* TodoListApp.swift */,
@@ -162,6 +167,14 @@
 				2D825E2A25AD687E00674BE1 /* Info.plist */,
 			);
 			path = TodoListUITests;
+			sourceTree = "<group>";
+		};
+		2DA67F7825B2CF9E00653BEB /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2DA67F7325B2C36800653BEB /* ToastCenter.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		2DB537B625AD6AE90028EAFC /* View */ = {
@@ -204,6 +217,7 @@
 			name = TodoList;
 			packageProductDependencies = (
 				2D2F818525B1EE2E00168DA8 /* PartialSheet */,
+				2DA67F6E25B2BE5D00653BEB /* ToastSwiftUI */,
 			);
 			productName = TodoList;
 			productReference = 2D825E0325AD687D00674BE1 /* TodoList.app */;
@@ -278,6 +292,7 @@
 			mainGroup = 2D825DFA25AD687D00674BE1;
 			packageReferences = (
 				2D2F818425B1EE2E00168DA8 /* XCRemoteSwiftPackageReference "PartialSheet" */,
+				2DA67F6D25B2BE5D00653BEB /* XCRemoteSwiftPackageReference "ToastSwiftUI" */,
 			);
 			productRefGroup = 2D825E0425AD687D00674BE1 /* Products */;
 			projectDirPath = "";
@@ -327,6 +342,7 @@
 				2D825E0925AD687D00674BE1 /* ContentView.swift in Sources */,
 				2D8DA1CF25AF267500CCF655 /* TaskList.swift in Sources */,
 				2D8DA1D925AF29E400CCF655 /* TaskAddButton.swift in Sources */,
+				2DA67F7425B2C36800653BEB /* ToastCenter.swift in Sources */,
 				2D825E0725AD687D00674BE1 /* TodoListApp.swift in Sources */,
 				2DB537D425AD80FD0028EAFC /* Task+CoreDataProperties.swift in Sources */,
 				2D8DA1D425AF288500CCF655 /* TabIcon.swift in Sources */,
@@ -666,6 +682,14 @@
 				minimumVersion = 2.1.11;
 			};
 		};
+		2DA67F6D25B2BE5D00653BEB /* XCRemoteSwiftPackageReference "ToastSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/huynguyencong/ToastSwiftUI.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -673,6 +697,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2D2F818425B1EE2E00168DA8 /* XCRemoteSwiftPackageReference "PartialSheet" */;
 			productName = PartialSheet;
+		};
+		2DA67F6E25B2BE5D00653BEB /* ToastSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2DA67F6D25B2BE5D00653BEB /* XCRemoteSwiftPackageReference "ToastSwiftUI" */;
+			productName = ToastSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

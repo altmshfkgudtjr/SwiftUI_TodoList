@@ -8,10 +8,12 @@
 import SwiftUI
 import PartialSheet
 // https://github.com/AndreaMiotto/PartialSheet#how-to-use 레퍼런스 참고하도록 하자!
+import ToastSwiftUI
 
 struct TaskModal: View {
     @Environment(\.managedObjectContext) var viewContext
     @EnvironmentObject var partialSheet : PartialSheetManager
+    @ObservedObject var toastCenter: ToastCenter
     
     var isNew: Bool
     var task: Task?
@@ -28,11 +30,12 @@ struct TaskModal: View {
             _taskBrief = State(initialValue: task!.brief ?? "")
             _taskIsToday = State(initialValue: task!.isToday)
         }
+        self.toastCenter = ToastCenter()
     }
     
     var body: some View {
-        if (isNew) {
-            VStack {
+        VStack {
+            if (isNew) {
                 Text("할 일 계획")
                     .font(.headline)
                     .fontWeight(.bold)
@@ -71,9 +74,7 @@ struct TaskModal: View {
                     })
                 }
                 .padding(.horizontal)
-            }
-        } else {
-            VStack {
+            } else {
                 Text("할 일 계획")
                     .font(.headline)
                     .fontWeight(.bold)
@@ -143,6 +144,7 @@ struct TaskModal: View {
         
         do {
             try viewContext.save()
+            toastCenter.addTask()
         } catch {
             print(error)
         }
@@ -156,6 +158,7 @@ struct TaskModal: View {
         
         do {
             try viewContext.save()
+            toastCenter.modifyTask()
         } catch {
             print(error)
         }

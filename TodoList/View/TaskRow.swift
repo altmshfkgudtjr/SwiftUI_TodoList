@@ -21,7 +21,14 @@ struct TaskRow: View {
                 TaskModal(isNew: false, task: task)
             }
         }, label: {
-            Text(task.title ?? "불러오는 중입니다...")
+            VStack(alignment: .leading) {
+                Text(task.title ?? "불러오는 중입니다...")
+                if (task.brief != "") {
+                    Text(task.brief ?? "")
+                        .font(.system(size: 14))
+                        .foregroundColor(Color.gray)
+                }
+            }
         })
     }
 }

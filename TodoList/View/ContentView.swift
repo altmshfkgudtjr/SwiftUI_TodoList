@@ -8,17 +8,18 @@
 import SwiftUI
 import CoreData
 import PartialSheet
+import ToastSwiftUI
 
 struct ContentView: View {
     // PartialSheet을 사용하기 위한 설정 (import PartialSheet가 필요하다.)
     // PartialSheet와 관련된 모든 것을 사용하기 위해서는 해당 라이브러리 import가 필요하다. 라고 레퍼런스에 적혀있음.
     // 왜냐하면 Modal이 보여지기 위해서는 해당 공유자원을 수정해야 되기 때문이다.
     @EnvironmentObject var partialSheet : PartialSheetManager
+    @ObservedObject var toastCenter: ToastCenter  = ToastCenter()
     
     // 현재 탭 tag를 지정해준다. 이 부분을 안하면 partialSheet이 열릴 때,
     // 초기화가 되는 버그가 발생할 수 있다.
     @State private var currentTab = 1
-
     
     var body: some View {
         NavigationView {
@@ -65,6 +66,8 @@ struct ContentView: View {
             }
         }
         .addPartialSheet()
+        .toast(isPresenting: $toastCenter.isAddToast, message: "추가 완료", icon: .success)
+        .toast(isPresenting: $toastCenter.isModifyToast, message: "수정 완료", icon: .success)
     }
 }
 
