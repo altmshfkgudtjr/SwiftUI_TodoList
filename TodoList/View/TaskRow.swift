@@ -10,6 +10,7 @@ import PartialSheet
 
 struct TaskRow: View {
     @EnvironmentObject var partialSheet : PartialSheetManager
+    @ObservedObject var toastCenter: ToastCenter
     
     var task: Task
     
@@ -18,7 +19,7 @@ struct TaskRow: View {
             self.partialSheet.showPartialSheet({
                 print("Partial sheet가 비활성화되었습니다!")
             }) {
-                TaskModal(isNew: false, task: task)
+                TaskModal(isNew: false, task: task, toastCenter: self.toastCenter)
             }
         }, label: {
             VStack(alignment: .leading) {

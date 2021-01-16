@@ -11,6 +11,7 @@ import PartialSheet
 struct TaskAddButton: View {
     @Environment(\.managedObjectContext) var viewContext
     @EnvironmentObject var partialSheet : PartialSheetManager
+    @ObservedObject var toastCenter: ToastCenter
     
     var body: some View {
         VStack {
@@ -23,7 +24,7 @@ struct TaskAddButton: View {
                     self.partialSheet.showPartialSheet({
                         print("Partial sheet가 비활성화되었습니다!")
                     }) {
-                        TaskModal(isNew: true)
+                        TaskModal(isNew: true, toastCenter: self.toastCenter)
                     }
                 }, label: {
                     Image(systemName: "plus")

@@ -22,7 +22,7 @@ struct TaskModal: View {
     @State var taskBrief: String = ""
     @State var taskIsToday: Bool = false
     
-    init(isNew: Bool, task: Task? = nil) {
+    init(isNew: Bool, task: Task? = nil, toastCenter: ToastCenter) {
         self.isNew = isNew
         if (!isNew) {
             self.task = task
@@ -30,7 +30,7 @@ struct TaskModal: View {
             _taskBrief = State(initialValue: task!.brief ?? "")
             _taskIsToday = State(initialValue: task!.isToday)
         }
-        self.toastCenter = ToastCenter()
+        self.toastCenter = toastCenter
     }
     
     var body: some View {
@@ -144,7 +144,7 @@ struct TaskModal: View {
         
         do {
             try viewContext.save()
-            toastCenter.addTask()
+            toastCenter.isAddToast = true
         } catch {
             print(error)
         }
@@ -158,7 +158,7 @@ struct TaskModal: View {
         
         do {
             try viewContext.save()
-            toastCenter.modifyTask()
+            toastCenter.isModifyToast = true
         } catch {
             print(error)
         }

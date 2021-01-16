@@ -25,16 +25,16 @@ struct ContentView: View {
         NavigationView {
             ZStack {
                 TabView(selection: $currentTab) {
-                    TaskList(type: TodoType.TODAY)
+                    TaskList(toastCenter: self.toastCenter, type: TodoType.TODAY)
                         .tabItem({ TabIcon(type: TodoType.TODAY) }).tag(1)
-                    TaskList(type: TodoType.INCOMPLETE)
+                    TaskList(toastCenter: self.toastCenter, type: TodoType.INCOMPLETE)
                         .tabItem({ TabIcon(type: TodoType.INCOMPLETE) }).tag(2)
-                    TaskList(type: TodoType.DONE)
+                    TaskList(toastCenter: self.toastCenter, type: TodoType.DONE)
                         .tabItem({ TabIcon(type: TodoType.DONE) }).tag(3)
-                    TaskList(type: TodoType.ALL)
+                    TaskList(toastCenter: self.toastCenter, type: TodoType.ALL)
                         .tabItem({ TabIcon(type: TodoType.ALL) }).tag(4)
                 }
-                TaskAddButton()
+                TaskAddButton(toastCenter: self.toastCenter)
             }
             .navigationBarColor(UIColor(red: 18/255, green: 184/255, blue: 134/255, alpha: 1))
             
@@ -51,7 +51,7 @@ struct ContentView: View {
                             self.partialSheet.showPartialSheet({
                                 print("Partial sheet가 비활성화되었습니다!")
                             }) {
-                                TaskModal(isNew: true)
+                                TaskModal(isNew: true, toastCenter: self.toastCenter)
                             }
                         }, label: {
                             Text("할 일 추가하기")

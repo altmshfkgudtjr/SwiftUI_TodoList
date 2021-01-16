@@ -14,12 +14,4 @@ class ToastCenter: ObservableObject {
     @Published var isModifyToast = false
     
     init() { }
-    
-    func addTask() {
-        isAddToast = true
-    }
-    
-    func modifyTask() {
-        isModifyToast = true
-    }
 }

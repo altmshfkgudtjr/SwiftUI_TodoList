@@ -13,6 +13,7 @@ struct TaskList: View {
     @Environment(\.managedObjectContext) var viewContext
     // PartialSheet을 사용하기 위한 설정
     @EnvironmentObject var partialSheet : PartialSheetManager
+    @ObservedObject var toastCenter: ToastCenter
     
     @FetchRequest(
         entity: Task.entity(),
@@ -62,7 +63,7 @@ struct TaskList: View {
                     } else {
                         List {
                             ForEach(taskTodayList) { task in
-                                TaskRow(task: task)
+                                TaskRow(toastCenter: self.toastCenter, task: task)
                             }
                             .onDelete(perform: self.choiceToday)
                         }.frame(width: abs(g.size.width - 30), height: abs(g.size.height - 60), alignment: .center)
@@ -79,7 +80,7 @@ struct TaskList: View {
                     } else {
                         List {
                             ForEach(taskIncompleteList) { task in
-                                TaskRow(task: task)
+                                TaskRow(toastCenter: self.toastCenter, task: task)
                             }
                             .onDelete(perform: self.choiceIncomplete)
                         }.frame(width: abs(g.size.width - 30), height: abs(g.size.height - 60), alignment: .center)
@@ -96,7 +97,7 @@ struct TaskList: View {
                     } else {
                         List {
                             ForEach(taskDoneList) { task in
-                                TaskRow(task: task)
+                                TaskRow(toastCenter: self.toastCenter, task: task)
                             }
                             .onDelete(perform: self.choiceDone)
                         }.frame(width: abs(g.size.width - 30), height: abs(g.size.height - 60), alignment: .center)
@@ -113,7 +114,7 @@ struct TaskList: View {
                     } else {
                         List {
                             ForEach(taskAllList) { task in
-                                TaskRow(task: task)
+                                TaskRow(toastCenter: self.toastCenter, task: task)
                             }
                             .onDelete(perform: self.choiceAll)
                         }.frame(width: abs(g.size.width - 30), height: abs(g.size.height - 60), alignment: .center)
